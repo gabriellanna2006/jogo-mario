@@ -10,7 +10,7 @@ window.onload = () => {
   const somGameOver = document.getElementById('somGameOver');
   const powerUp = document.getElementById('powerUp');
 
-  // Funções para salvar e carregar cookie
+  /
   const setCookie = (name, value, days) => {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -31,7 +31,7 @@ window.onload = () => {
     return "";
   };
 
-  // Variáveis do jogo
+  
   let scoreValue = 0;
   let highScoreValue = parseInt(getCookie('high-score') || 0);
   let currentForm = 'starter';
@@ -39,7 +39,7 @@ window.onload = () => {
 
   highScore.textContent = highScoreValue;
 
-  // Função de pulo
+  
   const jump = () => {
     if (!mario || !somPulo) return;
 
@@ -85,7 +85,7 @@ window.onload = () => {
     }, 500);
   };
 
-  // Função que detecta falha
+ 
   const waitingFailure = () => {
     if (!pipe || !mario) return;
 
@@ -114,10 +114,10 @@ window.onload = () => {
     }
   };
 
-  // Inicia o loop de colisão
+
   loop = setInterval(waitingFailure, 10);
 
-  // Reinicia o jogo
+  
   const restartGame = () => {
     musicaFundo.currentTime = 0;
     musicaFundo.play();
@@ -142,7 +142,6 @@ window.onload = () => {
     loop = setInterval(waitingFailure, 10);
   };
 
-  // Eventos
   document.querySelector('.retry').addEventListener('click', restartGame);
   document.addEventListener('keydown', jump);
   document.addEventListener('touchstart', jump);
